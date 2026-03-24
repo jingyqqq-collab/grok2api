@@ -1,9 +1,15 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
-  "env": {
-    "LOG_LEVEL": "INFO",
-    "LOG_FILE_ENABLED": "false",
-    "DATA_DIR": "/tmp/data"
-  }
+  "builds": [
+    {
+      "src": "main.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "main.py"
+    }
+  ]
 }
